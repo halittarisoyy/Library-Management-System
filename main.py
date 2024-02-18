@@ -41,7 +41,6 @@ class Library:
         
         title_to_remove = input("Enter the title of the book to remove: ").lower()
 
-        #öncelikle dosyadaki veriler döngüde döndürüp listeye atmak için
         with open(self.file_path, 'a+', encoding='utf-8') as file:
             file.seek(0)
             lines = file.read().splitlines()
@@ -52,7 +51,6 @@ class Library:
             logic_oparetor= len(up_list)
             
 
-        #Tüm dosyları silip, kullanıcın silinmesini istediği kitap dışındaki kitapları eklemek için
         with open(self.file_path, 'w', encoding='utf-8') as file:
             for i in range(len(up_list)):
                 if not up_list[i][0]== title_to_remove:
@@ -61,7 +59,6 @@ class Library:
                         file.write(", ")
                     file.write("\n")
         
-        #Kullanıcıya durum raporu vermek için
         with open(self.file_path, 'a+', encoding='utf-8') as file:
             file.seek(0)
             set_lines = file.read().splitlines()
@@ -80,10 +77,8 @@ class Library:
             print("Book removed successfully.")    
         
 
-# Create an object named "lib" with "Library" class
 lib = Library()
 
-# Menu
 while True:
     print("")
     print("----------------------- MENU -----------------------")
